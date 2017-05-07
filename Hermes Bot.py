@@ -1,8 +1,10 @@
 import discord
 import logging
+import asyncio
+import os
 
 
-from discord.ext.commands import Bot
+from discord.ext import commands
 
 
 def log():
@@ -13,18 +15,41 @@ def log():
     logger.addHandler(handler)
 log()
 
-Hermes_Bot = Bot(command_prefix="!")
+description = 'Hello you cunts.'
+
+Hermes_Bot = commands.Bot(command_prefix='?', description=description)
+
+client = discord.Client()
+member = discord.Member
+
+def event():
+    @Hermes_Bot.event
+
+    async def on_ready():
+        print('Logged in as:\n{0} (ID: {0.id})'.format(Hermes_Bot.user))
+        await Hermes_Bot.change_presence(game=discord.Game(name="Futurama"))
+
+    async def on_member_join(member):
+        server = member.server
+        fmt = 'Welcome {0.mention} to {1.name}!'
+        await client.send_message(server, fmt.format(member, server))
 
 
-@Hermes_Bot.event
-async def on_ready():
-    print("Blast off")
+
+event()
 
 
 def commands():
     @Hermes_Bot.command()
-    async def hello(*args):
+    async def hello():
         return await Hermes_Bot.say ("Alright cunts")
 
-Hermes_Bot.run("MzEwNTIwMzcwMzc5NjIwMzUz.C-_4GA.Kupqd38QG9s7C-FL41WZ59igJKQ")
+    async def joined(member: discord.member):
+        """Fatty has arrived"""
+        await Hermes_Bot.say('{0.name} joined in {0.joined_at}'.format(member))
 
+
+commands()
+
+
+Hermes_Bot.run("MzEwNTIwMzcwMzc5NjIwMzUz.C-_4GA.Kupqd38QG9s7C-FL41WZ59igJKQ")
