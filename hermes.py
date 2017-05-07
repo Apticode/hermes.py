@@ -20,7 +20,7 @@ description = 'Hello you cunts.'
 Hermes_Bot = commands.Bot(command_prefix='?', description=description)
 
 client = discord.Client()
-member = discord.Member()
+member = discord.Member
 
 def event():
     @Hermes_Bot.event
