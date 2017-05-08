@@ -1,12 +1,12 @@
 import discord
 import logging
 import asyncio
-import os
+import random
 import sys
 import time
-import random
 
 from discord.ext import commands
+
 
 def log():
     logging.basicConfig(level=logging.INFO)
@@ -18,13 +18,11 @@ log()
 
 description = 'As fast as the Greek God and as flexible as the Jamaican.'
 
-hermes = commands.Bot(command_prefix='?', description=description)
-
-currentTime = (time.strftime("%H:%M:%S"))
+current_time = (time.strftime("%H:%M:%S"))
 
 currentDate = (time.strftime("%d/%m/%Y"))
 
-answers = [
+ball_answers = [
     "The answer lies in your heart.",
     "I do not know.",
     "Almost certainly.",
@@ -51,7 +49,11 @@ quotes = [
     "Hermes: \"Oh, Bender's a model employee.\"",
 ]
 
+hermes = commands.Bot(command_prefix='?', description=description)
+
+
 client = discord.Client()
+
 
 def event():
     @client.event
@@ -65,12 +67,14 @@ def event():
         print('Logged in as:\n{0} (ID: {0.id})'.format(hermes.user))
         await hermes.change_presence(game=discord.Game(name="Futurama"))\
 
+
 event()
+
 
 def hermes_command():
     @hermes.command()
     async def hello():
-        await hermes.say("Greetings!")
+        await hermes.say("WAGWAN")
 
     @hermes.command()
     async def info():
@@ -80,7 +84,20 @@ def hermes_command():
 
     @hermes.command()
     async def time():
-        await hermes.say(currentTime)
+        await hermes.say(current_time)
+
+    @hermes.command(name="commands")
+    async def command_list():
+        await hermes.say("```Here is a list of some of the commands you can use by using ? then the command\n"
+                         "1:) commands \n"
+                         "2:) hello \n"
+                         "3:) info \n"
+                         "4:) time \n "
+                         "5:) date \n"
+                         "6:) 8ball \n"
+                         "7:) coinflip \n"
+                         "8:) quote \n"
+                         )
 
     @hermes.command()
     async def date():
@@ -88,7 +105,7 @@ def hermes_command():
 
     @hermes.command(name="8ball")
     async def ball():
-        await hermes.say(random.choice(answers))
+        await hermes.say(random.choice(ball_answers))
 
     @hermes.command()
     async def coinflip():
@@ -100,5 +117,5 @@ def hermes_command():
 
 hermes_command()
 
-hermes.run("MzEwNTIwMzcwMzc5NjIwMzUz.C-_4GA.Kupqd38QG9s7C-FL41WZ59igJKQ")
 
+hermes.run("MzEwNTIwMzcwMzc5NjIwMzUz.C-_4GA.Kupqd38QG9s7C-FL41WZ59igJKQ")
