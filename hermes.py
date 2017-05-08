@@ -20,7 +20,7 @@ description = 'As fast as the Greek God and as flexible as the Jamaican.'
 
 current_time = (time.strftime("%H:%M:%S"))
 
-currentDate = (time.strftime("%d/%m/%Y"))
+current_date = (time.strftime("%d/%m/%Y"))
 
 ball_answers = [
     "The answer lies in your heart.",
@@ -101,7 +101,7 @@ def hermes_command():
 
     @hermes.command()
     async def date():
-        await hermes.say(currentDate)
+        await hermes.say(current_date)
 
     @hermes.command(name="8ball")
     async def ball():
