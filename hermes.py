@@ -113,11 +113,11 @@ def hermes_command():
                          "1:) commands \n"
                          "2:) hello \n"
                          "3:) info \n"
-                         "4:) time \n "
+                         "4:) time \n"
                          "5:) date \n"
                          "6:) 8ball \n"
                          "7:) coinflip \n"
-                         "8:) quote \n"
+                         "8:) quote \n```"
                          )
 
     @hermes.command()
