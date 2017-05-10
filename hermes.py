@@ -33,6 +33,19 @@ ball_answers = [
     "Time will only tell.",
 ]
 
+rate_answers = [
+    "I rate you 1/10.",
+    "I rate you 2/10.",
+    "I rate you 3/10.",
+    "I rate you 4/10.",
+    "I rate you 5/10.",
+    "I rate you 6/10.",
+    "I rate you 7/10.",
+    "I rate you 8/10.",
+    "I rate you 9/10.",
+    "I rate you 10/10.",
+]
+
 coin = [
     "Heads.",
     "Tails.",
@@ -77,6 +90,14 @@ def hermes_command():
         await hermes.say("WAGWAN")
 
     @hermes.command()
+    async def bye():
+        await hermes.say("Safe bruv!")
+
+    @hermes.command()
+    async def website():
+        await hermes.say("You can find our official website @ https://hermespy.tk/")
+
+    @hermes.command()
     async def info():
         return await hermes.say("This bot was produced in collaboration between darkhunters and jenk "
                                 " \n For further information please private message one of the "
@@ -110,6 +131,10 @@ def hermes_command():
     @hermes.command()
     async def coinflip():
         await hermes.say(random.choice(coin))
+
+    @hermes.command()
+    async def rateme():
+        await hermes.say(random.choice(rate_answers))
 
     @hermes.command(name="quote")
     async def randomquote():
