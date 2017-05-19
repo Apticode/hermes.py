@@ -143,4 +143,4 @@ def hermes_command():
 hermes_command()
 
 
-hermes.run("MzEwNTIwMzcwMzc5NjIwMzUz.C-_4GA.Kupqd38QG9s7C-FL41WZ59igJKQ")
+hermes.run("TOKEN-HERE")
