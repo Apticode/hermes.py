@@ -1,0 +1,7 @@
+TODO
+Updated 07-jul-17
+by darkhunters
+  1:) fix commands/help cog or formatter
+  2:) Add further cogs such as music
+  3:) refine hermes.say outputs further
+ 
