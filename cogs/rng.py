@@ -1,6 +1,6 @@
 import random
 from discord.ext import commands
-from rng_variables import *
+from other.rng_variables import *
 
 
 class RNG():
