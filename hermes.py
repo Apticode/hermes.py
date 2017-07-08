@@ -49,4 +49,4 @@ if __name__ == "__main__":
 
 event()
 log()
-hermes.run("Token here")
+hermes.run("token")
