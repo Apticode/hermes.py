@@ -23,7 +23,7 @@ class RNG():
     async def randomquote(self):
         await self.hermes.say(random.choice(quotes))
     
-    @commands.command(description='For when you wanna settle the score some other way')
+    @commands.command()
     async def choose(self, *choices: str):
         await self.hermes.say(random.choice(choices))    
 
