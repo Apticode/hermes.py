@@ -4,7 +4,7 @@ from discord.ext import commands
 current_time = (time.strftime("%H:%M:%S"))
 current_date = (time.strftime("%d/%m/%Y"))
 
-class timeanddate():
+class Time_and_Date():
     def __init__(self, hermes):
         self.hermes = hermes
 
@@ -17,4 +17,4 @@ class timeanddate():
         await self.hermes.say(current_time)
 
 def setup(hermes):
-    hermes.add_cog(timeanddate(hermes))
+    hermes.add_cog(Time_and_Date(hermes))
