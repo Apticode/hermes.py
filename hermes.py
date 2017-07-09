@@ -1,9 +1,6 @@
 from other.core_variables import *
 from other.log_function import *
 
-import sys
-sys.path.append ('/root/hermes.py/cogs')
-
 
 def event():
     @client.event
