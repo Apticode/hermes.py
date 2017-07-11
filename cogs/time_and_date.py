@@ -1,8 +1,6 @@
-import time
+import datetime
 from discord.ext import commands
 
-current_time = (time.strftime("%H:%M:%S"))
-current_date = (time.strftime("%d/%m/%Y"))
 
 class Time_and_Date():
     def __init__(self, hermes):
@@ -10,11 +8,11 @@ class Time_and_Date():
 
     @commands.command()
     async def date(self):
-        await self.hermes.say(current_date)
+        await self.hermes.say(datetime.datetime.now().date().strftime("%d/%m/%Y"))
 
     @commands.command()
     async def time(self):
-        await self.hermes.say(current_time)
+        await self.hermes.say(str(datetime.datetime.now().time())[:8])
 
 def setup(hermes):
     hermes.add_cog(Time_and_Date(hermes))
