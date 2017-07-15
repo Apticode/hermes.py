@@ -1,5 +1,7 @@
 from other.core_variables import *
 from other.log_function import *
+import sys
+sys.path.append ('/root/hermes.py/cogs')
 
 
 def event():
@@ -14,8 +16,7 @@ def event():
         print("------------------------")
         print('Logged in as:\n{0} (ID: {0.id})'.format(hermes.user))
         print("------------------------")
-        await hermes.change_presence(game=discord.Game(name="Futurama"))\
-
+        await hermes.change_presence(game=discord.Game(name="Futurama|?help"))
 
 
 @hermes.command()
@@ -33,6 +34,14 @@ async def unload(extension_name : str):
     hermes.unload_extension(extension_name)
     await hermes.say("{} unloaded.".format(extension_name))
 
+
+@hermes.command(pass_context=True)
+async def purge(self, number):
+    messages = []
+    number = int(number)
+    async for p in self.hermes.logs_from(self.message.channel, limit=number):
+        messages.append(p)
+    await self.hermes.delete_messages(messages)
 
 if __name__ == "__main__":
 
