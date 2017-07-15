@@ -4,7 +4,7 @@ from discord.ext import commands
 
 description = 'As fast as the Greek God and as flexible as the Jamaican.'
 
-modular_initiation = ["cogs.rng", "cogs.information","cogs.time_and_date", "cogs.trivia"]
+modular_initiation = ["rng", "information","time_and_date", "trivia"]
 
 hermes = commands.Bot(command_prefix='?', description=description)
 
