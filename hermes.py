@@ -36,12 +36,12 @@ async def unload(extension_name : str):
 
 
 @hermes.command(pass_context=True)
-async def purge(self, number):
+async def purge(ctx, number):
     messages = []
     number = int(number)
-    async for p in self.hermes.logs_from(self.message.channel, limit=number):
+    async for p in hermes.logs_from(ctx.message.channel, limit=number):
         messages.append(p)
-    await self.hermes.delete_messages(messages)
+    await hermes.delete_messages(messages)
 
 if __name__ == "__main__":
 
