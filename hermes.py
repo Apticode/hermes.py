@@ -1,7 +1,7 @@
 from other.core_variables import *
 from other.log_function import *
 import sys
-sys.path.append ('/root/hermes.py/cogs')
+sys.path.append ('/hermes/hermes.py/cogs')
 
 
 def event():
