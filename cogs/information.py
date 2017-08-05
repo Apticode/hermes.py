@@ -25,8 +25,17 @@ class Information():
     @commands.command()
     async def info(self):
         return await self.hermes.say("This hermes was produced in collaboration between darkhunters and jenk "
-                                     " \n For further information please private message one of the "
-                                     "developers or moderators available")
+                                     " \n For further information please contact us on our discord @ "
+                                     "https://discord.gg/qvNDzZg/ or visit our website, use the ?website command")
+    @commands.command(pass_context=True)
+    # makeshift ping for now
+    async def ping(self,ctx):
+        """pseudo-ping time"""
+        channel = ctx.message.channel
+        t1 = time.perf_counter()
+        await self.hermes.send_typing(channel)
+        t2 = time.perf_counter()
+        await self.hermes.say("ping: {}ms".format(round((t2-t1)*1000)))
 
 
 def setup(hermes):
