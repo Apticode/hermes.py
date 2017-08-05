@@ -1,5 +1,6 @@
 from other.core_variables import *
 from other.log_function import *
+from utils import checks
 import sys
 sys.path.append ('/home/hermes/hermes.py/cogs')
 
@@ -20,6 +21,8 @@ def event():
 
 
 @hermes.command()
+@checks.is_owner()
+@checks.admin_or_permissions(manage_server=True,manage_roles=True)
 async def load(extension_name : str):
     try:
         hermes.load_extension(extension_name)
@@ -30,12 +33,16 @@ async def load(extension_name : str):
 
 
 @hermes.command()
+@checks.is_owner()
+@checks.admin_or_permissions(manage_server=True)
 async def unload(extension_name : str):
     hermes.unload_extension(extension_name)
     await hermes.say("{} unloaded.".format(extension_name))
 
 
 @hermes.command(pass_context=True)
+@checks.is_owner()
+@checks.admin_or_permissions(manage_server=True)
 async def purge(ctx, number):
     messages = []
     number = int(number)
@@ -51,6 +58,8 @@ if __name__ == "__main__":
         except Exception as h:
             exc = '{}: {}'.format(type(h).__name__, h)
             print('Failed to load module {}\n{}'.format(extension, exc))
+
+
 
 
 event()
