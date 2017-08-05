@@ -3,7 +3,7 @@ from other.log_function import *
 from utils import checks
 import sys
 sys.path.append ('/home/hermes/hermes.py/cogs')
-
+sys.path.append ('/home/hermes/hermes.py/cogs/utils')
 
 def event():
     @client.event
