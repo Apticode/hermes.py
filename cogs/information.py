@@ -7,7 +7,7 @@ class Information():
 
     @commands.command()
     async def website(self):
-        await self.hermes.say("You can find our official website @ https://hermes.apticode.co.uk")
+        await self.hermes.say("You can find our official website @ https://hermespy.apticode.co.uk")
 
 
     @commands.command()
