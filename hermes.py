@@ -22,8 +22,7 @@ def event():
 
 @hermes.command()
 @checks.is_owner()
-@checks.admin_or_permissions(Adminstrator=True)
-async def load(extension_name : str):
+async def load(extension_name: str):
     try:
         hermes.load_extension(extension_name)
     except (AttributeError, ImportError) as h:
@@ -34,15 +33,13 @@ async def load(extension_name : str):
 
 @hermes.command()
 @checks.is_owner()
-@checks.admin_or_permissions(Adminstrator=True)
-async def unload(extension_name : str):
+async def unload(extension_name: str):
     hermes.unload_extension(extension_name)
     await hermes.say("{} unloaded.".format(extension_name))
 
 
 @hermes.command(pass_context=True)
-@checks.is_owner()
-@checks.admin_or_permissions(Adminstrator=True)
+@checks.serverowner_or_permissions(administrator=True)
 async def purge(ctx, number):
     messages = []
     number = int(number)
@@ -58,8 +55,6 @@ if __name__ == "__main__":
         except Exception as h:
             exc = '{}: {}'.format(type(h).__name__, h)
             print('Failed to load module {}\n{}'.format(extension, exc))
-
-
 
 event()
 log()
