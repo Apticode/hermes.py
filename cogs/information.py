@@ -12,7 +12,7 @@ class Information():
 
     @commands.command()
     async def info(self):
-        return await self.hermes.say("This hermes was produced in collaboration between darkhunters and jenk "
+        return await self.hermes.say("This hermes was produced in collaboration between <@216666694582534145> and <@184361521558716418> "
                                      " \n For further information please contact us on our discord @ "
                                      "https://discord.gg/qvNDzZg/ or visit our website, use the ?website command")
     @commands.command(pass_context=True)
